@@ -1,23 +1,26 @@
 import streamlit as st
 import pandas as pd
+import streamlit as st
 
-# Create the layout of the app with three columns
-col1, col2, col3 = st.columns(3)
+# Form inputs
+name = st.text_input("Your full name:")
+date_of_birth = st.date_input("Date of birth:")
+place_of_birth = st.text_input("Place of birth:")
+marital_status = st.selectbox("Marital status:", ["Married", "Single", "Divorced"])
+spouse_name = st.text_input("Spouse's full name (if applicable):")
+children_names = st.text_input("Names of children (if applicable):")
+executor_name = st.text_input("Executor's full name:")
+beneficiary_names = st.text_input("Names of beneficiaries:")
 
-# Add content to the first column
-with col1:
-    st.write("This is the first column")
+# Asset inputs
+bank_accounts = st.number_input("Total amount in bank accounts:")
+real_estate = st.number_input("Total value of real estate owned:")
+investments = st.number_input("Total value of investments:")
+personal_property = st.number_input("Total value of personal property (e.g. vehicles, furniture):")
+other_assets = st.number_input("Total value of any other assets:")
 
-# Add content to the third column
-with col3:
-    st.write("This is the third column")
+# Submit button
+if st.button("Create Will"):
+    # Code to create will and distribute assets
+    pass
 
-# Add content to the second column
-with col2:
-    st.write("This is the second column")
-    
-    # Add four input widgets to the second column
-    input1 = st.text_input("Enter value 1")
-    input2 = st.text_input("Enter value 2")
-    input3 = st.text_input("Enter value 3")
-    input4 = st.text_input("Enter value 4")
