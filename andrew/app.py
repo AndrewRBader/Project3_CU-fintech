@@ -1,10 +1,7 @@
 import streamlit as st
-# Import the setup form component
+# Import the setup form and dashboard components
 from setup_form import setup_form
-
-# Define the dashboard tab
-def dashboard():
-    st.write("This is the dashboard tab")
+from dashboard import dashboard
 
 # Define the execution tab
 def execution():
@@ -12,8 +9,8 @@ def execution():
 
 # Define the main function
 def main():
-    st.set_page_config(page_title="Will-Asset Token App")
-    st.title("Will-Asset Token App")
+    st.set_page_config(page_title="Will Asset Token App")
+    st.title("Will Asset Token App")
 
     # Create a tab menu
     tabs = ["Form to set up", "Dashboard", "Execution"]
