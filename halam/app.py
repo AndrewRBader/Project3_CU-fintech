@@ -49,7 +49,25 @@ if st.button("Register Asset"):
     st.write(dict(receipt))
 
 
+# Pinata from module
+import requests
 
+# make a dictionary called "file_headers" that has your pinata keys
+file_headers = {
+    "pinata_api_key": os.getenv("PINATA_API_KEY"),
+    "pinata_secret_api_key": os.getenv("PINATA_SECRET_API_KEY"),
+}
+
+# return hash of the ipfs
+def pin_file_to_ipfs(data):
+    r = requests.post(
+        "https://api.pinata.cloud/pinning/pinFileToIPFS",
+        files={'file': data},
+        headers=file_headers
+    )
+    # print(r.json())
+    ipfs_hash = r.json()["IpfsHash"]
+    return ipfs_hash
 
 
 '''
