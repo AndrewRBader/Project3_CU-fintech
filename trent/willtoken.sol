@@ -1,21 +1,23 @@
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.19;
 
-//  Import the following contracts from the OpenZeppelin library:
+//  Import the following from the OpenZeppelin library:
 //    * `ERC20`
-//    * `ERC20Detailed`
-//    * `ERC20Mintable`
+//    * `Strings`
+//    * `Counters`
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-// // This contract includes cash assets. 
+// // This contract includes cash assets. ERC20 has its own transfer function we will use later.
 contract CashToken is ERC20 {
-    constructor(string memory name, string memory symbol, uint initial_supply) ERC20(name, symbol) {}
+    constructor(uint initial_supply) ERC20("Amount", "Cash") {
+        _mint(msg.sender, initial_supply);
+    }
 }
 //  Import the following contracts from the OpenZeppelin library:
-//    * `ERC721Full`
+//    * `ERC721URIStorage`
+//    * `IERC721Receiver
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 
@@ -98,17 +100,16 @@ contract AssetNFT is ERC721URIStorage, IERC721Receiver {
         transferNFT(msg.sender, address(this), tokenId);
         string memory name = estateAssets[tokenId].name;
         string memory symbol = Strings.toString(tokenId);
-        FractionalAssetToken fnft = new FractionalAssetToken(name, symbol);
+        FractionalAssetToken fnft = new FractionalAssetToken(name, symbol, tokenAmount);
         fnft.transfer(estate,tokenAmount);
         return address(fnft);
-
     }
 
     
 }
 contract FractionalAssetToken is ERC20 {
-    constructor(string memory name, string memory symbol) ERC20(name, symbol) {
-        _mint(estate, 1000000000000000000);
+    constructor(string memory name, string memory symbol, uint256 initialSupply) ERC20(name, symbol) {
+        _mint(estate, initialSupply);
     }
         // Set the estate address to the address which initiates the contract.
         address payable estate = payable(msg.sender);
