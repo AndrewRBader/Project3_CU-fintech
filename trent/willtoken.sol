@@ -2,9 +2,14 @@ pragma solidity ^0.8.19;
 
 //  Import the following from the OpenZeppelin library:
 //    * `ERC20`
+//    * `ERC721URIStorage`
+//    * `IERC721Receiver`
 //    * `Strings`
 //    * `Counters`
+
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
@@ -47,9 +52,11 @@ contract AssetNFT is ERC721URIStorage, IERC721Receiver {
     // tokenId to NFT owner
     mapping(uint256 => address) public tokenIdToOwner;
 
+    // Required function from IERC721Reciever. Allows the contract to recieve tokens.
     function onERC721Received( address operator, address from, uint256 tokenId, bytes calldata data ) public pure returns (bytes4) {
             return IERC721Receiver.onERC721Received.selector;
     }
+
     ///////////////////////////////////////////////////////////
     // mints an NFT tied to an asset in the estate
     //////////////////////////////////////////////////////////
@@ -107,6 +114,7 @@ contract AssetNFT is ERC721URIStorage, IERC721Receiver {
 
     
 }
+// Fractional ERC20 token to be used in the AssetNFT contract.
 contract FractionalAssetToken is ERC20 {
     constructor(string memory name, string memory symbol, uint256 initialSupply) ERC20(name, symbol) {
         _mint(estate, initialSupply);
