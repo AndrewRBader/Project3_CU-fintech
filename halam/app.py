@@ -34,7 +34,7 @@ def load_contract():
 contract = load_contract()
 
 
-# Pinata from module
+# Import libraries needed for Pinata functions
 import requests
 from pinata import pin_file_to_ipfs, pin_json_to_ipfs, convert_data_to_json
 
@@ -64,13 +64,13 @@ def pin_nft(nft_name, nft_file):
 st.title("Asset Registry")
 st.write("Choose your account")
 accounts = w3.eth.accounts
-address = st.selectbox("Account", options=accounts)
+address = w3.eth.accounts[0] 
 st.markdown("---")
 
 ################################################################################
-# Register New Asset
+# Register New Asset 
 ################################################################################
-# name, type, price, details, uri
+# require name, type, price, details (+ document which will be optional)
 
 st.markdown("## Register New Asset")
 nft_name = st.text_input("Enter the name of the asset")
@@ -102,6 +102,15 @@ if st.button("Register Asset"):
 
 st.markdown("---")
 
+################################################################################
+# Register Cash
+################################################################################
+'''
+st.markdown("## Register Cash") 
+total_cash_amount = st.text_input("Enter the amount of total cash")
+if st.button("Register Cash"):
+    tx_hash = contract.functions._mint(total_cash_amount).transact()
+'''
 
 '''
 # Define the execution tab
