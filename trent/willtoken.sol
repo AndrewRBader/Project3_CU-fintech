@@ -19,12 +19,6 @@ contract CashToken is ERC20 {
         _mint(msg.sender, initial_supply);
     }
 }
-//  Import the following contracts from the OpenZeppelin library:
-//    * `ERC721URIStorage`
-//    * `IERC721Receiver
-
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 
 // This contract includes stocks (as a whole), real estate, and misc items.
 contract AssetNFT is ERC721URIStorage, IERC721Receiver {
