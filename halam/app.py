@@ -33,24 +33,10 @@ def load_contract():
 # connect the contract variable to the load_contract function
 contract = load_contract()
 
-# NFT registration
-st.title("Register New Asset")
-accounts = w3.eth.accounts
-address = st.selectbox("Select NFT Owner", options=accounts)
-nft_uri = st.text_input("The URI to the asset")
-
-if st.button("Register Asset"):
-    tx_hash = contract.functions.tokenizeAsset("name", "assetType", "description", 4, nft_uri).transact({
-        "from": address,
-        "gas": 1000000
-    })
-    receipt = w3.eth.waitForTransactionReceipt(tx_hash)
-    st.write("Transaction receipt mined:")
-    st.write(dict(receipt))
-
 
 # Pinata from module
 import requests
+from pinata import pin_file_to_ipfs, pin_json_to_ipfs, convert_data_to_json
 
 # make a dictionary called "file_headers" that has your pinata keys
 file_headers = {
@@ -58,16 +44,63 @@ file_headers = {
     "pinata_secret_api_key": os.getenv("PINATA_SECRET_API_KEY"),
 }
 
-# return hash of the ipfs
-def pin_file_to_ipfs(data):
-    r = requests.post(
-        "https://api.pinata.cloud/pinning/pinFileToIPFS",
-        files={'file': data},
-        headers=file_headers
-    )
-    # print(r.json())
-    ipfs_hash = r.json()["IpfsHash"]
-    return ipfs_hash
+# This is for those who'd like to upload files such as deeds. 
+def pin_nft(nft_name, nft_file):
+    # Pin the file to IPFS with Pinata
+    ipfs_file_hash = pin_file_to_ipfs(nft_file.getvalue())
+
+    # Build a token metadata file for the artwork
+    token_json = {
+        "name": nft_name,
+        "image": ipfs_file_hash
+    }
+    json_data = convert_data_to_json(token_json)
+
+    # Pin the json to IPFS with Pinata
+    json_ipfs_hash = pin_json_to_ipfs(json_data)
+
+    return json_ipfs_hash
+
+st.title("Asset Registry")
+st.write("Choose your account")
+accounts = w3.eth.accounts
+address = st.selectbox("Account", options=accounts)
+st.markdown("---")
+
+################################################################################
+# Register New Asset
+################################################################################
+# name, type, price, details, uri
+
+st.markdown("## Register New Asset")
+nft_name = st.text_input("Enter the name of the asset")
+nft_type = st.text_input("Enter the asset type")
+price = st.text_input("Enter the value/price of your asset")
+details = st.text_input("Enter any details you have")
+upload_choice = st.selectbox("Upload doc (optional)", options = ("yes", "no"))
+if upload_choice == "yes":
+    nft_doc = st.file_uploader("Upload Your Document", type=["jpg", "jpeg", "png", "pdf"])
+    nft_ipfs_hash = pin_nft(nft_name, nft_doc)
+    nft_uri = f"ipfs://{nft_ipfs_hash}"
+else: 
+    nft_uri = "N/A"
+if st.button("Register Asset"):
+    tx_hash = contract.functions.tokenizeAsset(
+        nft_name,
+        nft_type,
+        details,
+        int(price),
+        nft_uri
+    ).transact({'from': address, 'gas': 1000000})
+    receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+    st.write("Transaction receipt mined:")
+    st.write(dict(receipt))
+    # st.write(contract.functions.estateAssets(1).call()) THIS DOESNT WORK YET
+    if upload_choice == "yes":
+        st.write("You can view the pinned metadata file with the following IPFS Gateway Link")
+        st.markdown(f"[Artwork IPFS Gateway Link](https://ipfs.io/ipfs/{nft_ipfs_hash})")
+
+st.markdown("---")
 
 
 '''
