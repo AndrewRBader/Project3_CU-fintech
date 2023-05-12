@@ -55,9 +55,6 @@ if st.button("Register Asset"):
 ################################################################################
 # Declare Estate Administrator 
 ################################################################################
-################################################################################
-# Declare Estate Administrator 
-################################################################################
 st.markdown("## Declare Estate Administrator")
 
 # Create a select box containing a list of available accounts for the user to choose from
