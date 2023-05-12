@@ -55,14 +55,22 @@ if st.button("Register Asset"):
 ################################################################################
 # Declare Estate Administrator 
 ################################################################################
+################################################################################
+# Declare Estate Administrator 
+################################################################################
 st.markdown("## Declare Estate Administrator")
-estate_admin = st.selectbox("Select Estate Administrator", options=accounts)
 
+# Create a select box containing a list of available accounts for the user to choose from
+estate_admin = st.selectbox("Select Estate Administrator", options=accounts)
+# "Declare Estate Administrator" button to call the smart contract function
 if st.button("Declare Estate Administrator"):
+    # Call the `declareEstateAdministrator` function with the selected estate administrator address as the argument
     tx_hash = contract.functions.declareEstateAdministrator(estate_admin).transact({'from': address, 'gas': 1000000})
+    # Wait for the transaction to be mined
     receipt = w3.eth.waitForTransactionReceipt(tx_hash)
     st.write("Transaction receipt mined:")
     st.write(dict(receipt))
+    # catch if fails
     if contract.functions.estateAdministrators(estate_admin).call() == True:
         st.write(f"{estate_admin} has been declared as an estate administrator")
     else:
