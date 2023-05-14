@@ -62,7 +62,9 @@ estate_admin = st.selectbox("Select Estate Administrator", options=accounts)
 # "Declare Estate Administrator" button to call the smart contract function
 if st.button("Declare Estate Administrator"):
     # Call the `declareEstateAdministrator` function with the selected estate administrator address as the argument
-    tx_hash = contract.functions.declareEstateAdministrator(estate_admin).transact({'from': address, 'gas': 1000000})
+    tx_hash = contract.functions.declareEstateAdministrator(estate_admin).transact({
+        'from': address, 
+        'gas': 1000000})
     # Wait for the transaction to be mined
     receipt = w3.eth.waitForTransactionReceipt(tx_hash)
     st.write("Transaction receipt mined:")
