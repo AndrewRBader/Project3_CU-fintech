@@ -14,7 +14,8 @@ load_dotenv()
 w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 
 
-#make a load_contract that will bring in the json abi file
+# Load contracts from the json abi folder
+
 @st.cache(allow_output_mutation=True)
 def load_contract_CashToken():
     with open(Path('./abi/CashToken_abi.json')) as f:
@@ -28,7 +29,8 @@ def load_contract_CashToken():
     )
 
     return contract
-# connect the contract variable to the load_contract function
+
+# connect the contract variable to the load_contract function - we will use these in app.py
 contract_CashToken = load_contract_CashToken()
 
 
@@ -45,8 +47,10 @@ def load_contract_AssetNFT():
     )
 
     return contract
-# connect the contract variable to the load_contract function
+
+# connect the contract variable to the load_contract function - we will use these in app.py
 contract_AssetNFT = load_contract_AssetNFT()
+
 
 '''
 def load_contract_FractionalAssetToken():
