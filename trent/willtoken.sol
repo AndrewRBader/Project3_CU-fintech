@@ -51,6 +51,9 @@ contract AssetNFT is ERC721URIStorage, IERC721Receiver {
             return IERC721Receiver.onERC721Received.selector;
     }
 
+    // Create an event to access the address of Fractionalized tokens
+    event FNFTAddress(uint256 tokenId, address contractAddress);
+
     ///////////////////////////////////////////////////////////
     // mints an NFT tied to an asset in the estate
     //////////////////////////////////////////////////////////
@@ -96,14 +99,27 @@ contract AssetNFT is ERC721URIStorage, IERC721Receiver {
     function FractionalizeNFT(
         uint256 tokenId,
         uint256 tokenAmount
-    ) public returns(address) {
+    ) public {
         require(tokenIdToOwner[tokenId] == msg.sender, "Not Authorized");
         transferNFT(msg.sender, address(this), tokenId);
         string memory name = estateAssets[tokenId].name;
         string memory symbol = Strings.toString(tokenId);
         FractionalAssetToken fnft = new FractionalAssetToken(name, symbol, tokenAmount);
         fnft.transfer(estate,tokenAmount);
-        return address(fnft);
+        emit FNFTAddress(tokenId, address(fnft));
+    }
+
+    ///////////////////////////////////////////////////////////////////
+    // Getter Functions
+    ////////////////////////////////////////////////////////////////////
+    function getAssetInfo(uint256 tokenId) public view returns(indivisibleAsset memory) {
+        return(estateAssets[tokenId]);
+    }
+    function getOwner(uint256 tokenId) public view returns(address) {
+        return(tokenIdToOwner[tokenId]);
+    }
+    function getBalance(address owner) public view returns(uint256) {
+        return(balanceOf(owner));
     }
 
     
