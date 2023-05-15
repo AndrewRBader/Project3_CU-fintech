@@ -22,7 +22,6 @@ from contracts import contract_CashToken, contract_AssetNFT
 
 ######################################################################################
 st.title("Asset Registry")
-st.write("Choose your account")
 accounts = w3.eth.accounts
 address = w3.eth.accounts[0] 
 st.markdown("---")
@@ -67,7 +66,7 @@ st.markdown("---")
 st.markdown("## Register Cash") 
 total_cash_amount = st.text_input("Enter the amount of total cash")
 if st.button("Register Cash"):
-    tx_hash = contract_CashToken.functions._mint(total_cash_amount).transact('from': address)
+    tx_hash = contract_CashToken.functions._transfer(total_cash_amount).transact({'from': address})
     receipt = w3.eth.waitForTransactionReceipt(tx_hash)
     st.write("Transaction receipt mined:")
     st.write(dict(receipt))
