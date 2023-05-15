@@ -66,7 +66,7 @@ st.markdown("---")
 st.markdown("## Register Cash") 
 total_cash_amount = st.text_input("Enter the amount of total cash")
 if st.button("Register Cash"):
-    tx_hash = contract_CashToken.functions._transfer(total_cash_amount).transact({'from': address})
+    tx_hash = contract_CashToken.functions._transfer(total_cash_amount).transact('from': address)
     receipt = w3.eth.waitForTransactionReceipt(tx_hash)
     st.write("Transaction receipt mined:")
     st.write(dict(receipt))
