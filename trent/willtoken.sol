@@ -13,13 +13,6 @@ import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-// // This contract includes cash assets. ERC20 has its own transfer function we will use later.
-contract CashToken is ERC20 {
-        constructor(uint initial_supply) ERC20("Amount", "Cash") {
-        _mint(msg.sender, initial_supply);
-    }
-}
-
 // This contract includes stocks (as a whole), real estate, and misc items.
 contract AssetNFT is ERC721URIStorage, IERC721Receiver {
 
@@ -86,7 +79,7 @@ contract AssetNFT is ERC721URIStorage, IERC721Receiver {
         address sender,
         address reciever,
         uint256 tokenId
-    ) private {
+    ) public {
         safeTransferFrom(sender,reciever,tokenId);
         // Update Directory mapping
         delete tokenIdToOwner[tokenId];
@@ -127,8 +120,16 @@ contract AssetNFT is ERC721URIStorage, IERC721Receiver {
 // Fractional ERC20 token to be used in the AssetNFT contract.
 contract FractionalAssetToken is ERC20 {
     constructor(string memory name, string memory symbol, uint256 initialSupply) ERC20(name, symbol) {
-        _mint(estate, initialSupply);
+        _mint(msg.sender, initialSupply);
     }
-        // Set the estate address to the address which initiates the contract.
-        address payable estate = payable(msg.sender);
+    // Set the estate address to the address which initiates the contract.
+    address payable estate = payable(msg.sender);
+
+    // Public transfer function
+    function transferTokens(address recipient, uint256 amount) public {
+        transfer(recipient, amount);
     }
+    function getBalance(address owner) public view returns(uint256) {
+        return(balanceOf(owner));
+    }
+}
