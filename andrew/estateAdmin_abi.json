@@ -1,0 +1,36 @@
+[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "admin",
+				"type": "address"
+			}
+		],
+		"name": "declareEstateAdministrator",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "estateAdmin",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	}
+]
