@@ -12,8 +12,6 @@ load_dotenv()
 #set w3 variable using getenv. 
 w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 
-# import contracts from contracts.py
-from contracts import contract_AssetNFT
 
 
 ######################################################################################
