@@ -36,7 +36,8 @@ if st.button("Register"):
     payment = {'recipient_address': recipient_address, 'amount': amount}
     st.session_state.payment_list.append(payment)
 
-st.write(st.session_state.payment_list)
+cash_list = st.session_state.payment_list
+st.write(cash_list)
 
 ################################################################################
 # Register New Asset, require name, type, price, details (+ document --> optional)
@@ -85,3 +86,21 @@ if st.button("Declare Estate Administrator"):
     else:
         st.write(f"Failed to declare {estate_admin} as an estate administrator")
 
+
+################################################################################
+# Execution
+################################################################################
+
+# Set the sender as the person who wrote the will
+sender = address
+# Set units of gas
+gas = 2100000
+# Set the receiver address
+if st.button("Execute"):
+    for x in cash_list:
+        receiver = x['recipient_address']
+        amount = x['amount']
+        # Convert balance from ether to wei
+        value = w3.toWei(amount, 'ether')
+        # Send the transaction to the blockchain
+        w3.eth.send_transaction({'to': receiver , 'from': sender , 'gas': gas, 'value': value})
