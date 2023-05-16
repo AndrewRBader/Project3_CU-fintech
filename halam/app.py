@@ -59,14 +59,14 @@ if st.button("Register Asset"):
 
 st.markdown("---")
 
+
 ################################################################################
 # Register Cash
 ################################################################################
 
-st.markdown("## Register Cash") 
-total_cash_amount = st.text_input("Enter the amount of total cash")
+st.markdown("## Register Cash Distribution")
+recipient_cash = st.text_input("Enter the address of a recipient")
+cash_amount = st.text_input("Enter the amount of Cash to be transferred")
 if st.button("Register Cash"):
-    tx_hash = contract_CashToken.functions._transfer(total_cash_amount).transact('from': address)
-    receipt = w3.eth.waitForTransactionReceipt(tx_hash)
-    st.write("Transaction receipt mined:")
-    st.write(dict(receipt))
+    dict = dict({recipient_cash: cash_amount})
+    print(dict)
