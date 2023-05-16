@@ -39,10 +39,10 @@ cash_list = st.session_state.payment_list
 st.write(cash_list)
 
 ################################################################################
-# Register New Asset, require name, type, price, details (+ document --> optional)
+# Register New Asset, require name, type, price, details
 ################################################################################
 #make a load_contract that will bring in the json abi file
-#@st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True)
 def load_contract():
     with open(Path('./abi/AssetNFT_abi.json')) as f:
         contract_abi = json.load(f)
@@ -57,6 +57,8 @@ def load_contract():
     return contract
 # connect the contract variable to the load_contract function
 contract = load_contract()
+
+
 if 'asset_list' not in st.session_state:
     st.session_state.asset_list = []
 
