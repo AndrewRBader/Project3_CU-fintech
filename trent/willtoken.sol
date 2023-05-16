@@ -15,7 +15,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 
 // // This contract includes cash assets. ERC20 has its own transfer function we will use later.
 contract CashToken is ERC20 {
-    constructor(uint initial_supply) ERC20("Amount", "Cash") {
+        constructor(uint initial_supply) ERC20("Amount", "Cash") {
         _mint(msg.sender, initial_supply);
     }
 }
@@ -28,6 +28,7 @@ contract AssetNFT is ERC721URIStorage, IERC721Receiver {
     Counters.Counter private _tokenIds;
 
     constructor() ERC721("AssetNFT", "ANFT") {}
+    
     // Set the estate address to the address which initiates the contract.
     address payable estate = payable(msg.sender);
 
@@ -51,6 +52,8 @@ contract AssetNFT is ERC721URIStorage, IERC721Receiver {
             return IERC721Receiver.onERC721Received.selector;
     }
 
+    // Create an event to access the tokenId of the minted token
+    event NFTTokenId(uint tokenId);
     // Create an event to access the address of Fractionalized tokens
     event FNFTAddress(uint256 tokenId, address contractAddress);
 
@@ -64,7 +67,6 @@ contract AssetNFT is ERC721URIStorage, IERC721Receiver {
         uint256 price,
         string memory tokenURI)
         public
-        returns (uint256)
     {
         _tokenIds.increment();
         uint256 tokenId = _tokenIds.current();
@@ -73,8 +75,7 @@ contract AssetNFT is ERC721URIStorage, IERC721Receiver {
 
         estateAssets[tokenId] = indivisibleAsset(name, assetType, description, price);
         tokenIdToOwner[tokenId] = estate;
-
-        return tokenId;
+        emit NFTTokenId(tokenId);
     }
 
     ////////////////////////////////////////////////////
@@ -121,7 +122,6 @@ contract AssetNFT is ERC721URIStorage, IERC721Receiver {
     function getBalance(address owner) public view returns(uint256) {
         return(balanceOf(owner));
     }
-
     
 }
 // Fractional ERC20 token to be used in the AssetNFT contract.
