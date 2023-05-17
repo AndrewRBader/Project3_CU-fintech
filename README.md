@@ -64,7 +64,7 @@ During the estate planning process, certain documents are essential. Common exam
 
 Estate planning is an ongoing process that should commence as soon as an individual possesses any significant assets. As life progresses and goals evolve, the estate plan should adapt accordingly. Insufficient estate planning can place undue financial burdens on loved ones, as estate taxes can be as high as 40%. Therefore, at the very least, it is crucial to establish a will, even if the taxable estate is not substantial. The cost of estate planning varies depending on the steps taken and the chosen approach. Hiring an estate planner or lawyer may involve hourly fees, although some professionals may offer a flat fee for their services. Additional costs can include will preparation, which can range from as low as $100 when seeking assistance from a professional.
 
-#### Associated Challenges
+#### <ins>Associated Challenges</ins>
 
 Our platform was developed with the aim of tackling the challenges associated with estate planning. The following checklist serves as a valuable tool to ensure that crucial aspects are not overlooked. Each of these issues requires careful consideration, as they can lead to significant problems if left unaddressed.
 
@@ -92,7 +92,7 @@ By addressing these issues and taking proactive steps, you can navigate estate p
 
 ## 4. Platform Description <a name="Platform"></a>
 
-#### Blockchain Applications in the Legal Industry
+#### <ins>Blockchain Applications in the Legal Industry</ins>
 
 Blockchain technology offers the potential to revolutionize various processes within the legal industry, enhancing efficiency, productivity, and security while preserving judicial authority. By optimizing different aspects of the legal and financial sectors, blockchain can reduce friction, lower costs, and automate manual tasks involved in drafting and amending legal documents. The introduction of smart contracts accelerates transactions between parties while minimizing costs. Automated and transparent management of escrow accounts using cost-efficient algorithms decreases expenses associated with manual labor, ultimately increasing the accessibility and demand for legal services.
 
@@ -108,7 +108,7 @@ Tokenization allows for the conversion of asset rights into digital tokens, faci
 
 Through these blockchain applications, we aim to revolutionize the legal industry and overcome its challenges, delivering increased efficiency, security, and cost savings for all stakeholders involved.
 
-#### Platform Breakdown
+#### <ins>Platform Breakdown</ins>
 
 In order to facilitate a seamless transition of your assets and financial affairs in the event of your passing, it is crucial to undertake a series of steps and considerations, all of which our platform can assist you with. Firstly, compile a comprehensive inventory of all your assets, encompassing physical possessions such as real estate and precious metals, as well as bank accounts, insurance policies, and annuities. Similarly, create a record of your outstanding debts, including loans and financial obligations. Once you have these inventories, you will no longer need to make physical copies if multiple beneficiaries require access to the information; our technology will handle that task for you.
 
