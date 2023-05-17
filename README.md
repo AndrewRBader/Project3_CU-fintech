@@ -7,7 +7,7 @@ Code developed by Andrew Bader, Trent Ransom, Halam Kim, and Max Accurso
 2. [Introduction](#Introduction)
 3. [Background Information](#Background)
 4. [Platform Description](#Platform)
-5. [Future Vision, and Cost Estimation](#Future)
+5. [Future Vision and Cost Estimation](#Future)
 6. [Project Operations](#Operations)
     - a. [Technologies Used](#Technologies)
     - b. [Problems and Solutions](#Problems)
