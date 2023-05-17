@@ -55,7 +55,7 @@ By embracing blockchain, lawyers can enhance their efficiency, provide cost-effe
 
 ## 3. Background Information <a name="Platform"></a>
 
-<Estate Planning>
+<u>Estate Planning</u>
 
 Estate planning encompasses the crucial task of determining the preservation, management, and distribution of an individual's assets following their passing. It also considers the management of properties and financial obligations in the event of incapacitation. Contrary to popular belief, estate planning is not solely reserved for the ultra-wealthy; it is a process that anyone can and should consider.
 An individual's estate may consist of various assets, such as properties, vehicles, stocks, artwork, life insurance, pensions, and debts. There are numerous reasons why individuals engage in estate planning, including preserving family wealth, providing for a surviving spouse and children, funding education for children or grandchildren, or leaving a charitable legacy.
