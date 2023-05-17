@@ -28,22 +28,22 @@ To clone and use:
     pip install python-dotenv 
     pip install requests 
     ```
-6) create .env file in the final_app repo and input the following information:
+6) copy and paste content from **willToken.sol** into Remix - Ethereum IDE. Compile and deploy the contract. This will give you the address you can use in the next step. 
 
-WEB3_PROVIDER_URI: The URI of the Ethereum node provider
-SMART_CONTRACT_ADDRESS: The address of the deployed smart contract
-PINATA_API_KEY: Pinata API key
-PINATA_SECRET_API_KEY: Pinata secret API key
+7) create .env file in the final_app repo and input the following information:
 
-7) cd into the final_app repo
+    WEB3_PROVIDER_URI: *The URI of the Ethereum node provider*
+    SMART_CONTRACT_ADDRESS: *The address of the deployed smart contract*
 
-8) start up ganache local instance
-9) start up streamlit app
+8) cd into the final_app repo
+
+9) start up ganache local instance
+10) start up streamlit app
    ``` 
    streamlit run app.py
    ```
-10) look for app in browser client at Local URL 
-11) follow app instructions
+11) look for app in browser client at Local URL 
+12) follow app instructions
 
 ## 2. Introduction <a name="Introduction"></a>
 
@@ -135,6 +135,14 @@ Throughout our journey, we will continue to prioritize innovation and adaptabili
 
 To summarize, our future vision for the blockchain-based estate planning platform involves expanding our service offerings, developing mobile applications, establishing strategic partnerships, exploring international markets, and embracing innovation. By pursuing these initiatives, we aim to create a future where estate planning and legal services are accessible, efficient, and secure, empowering individuals and legal professionals to navigate the complexities of the legal landscape with confidence.
 
+#### <ins>Cost Estimation</ins>
+
+In order to estimate the cost of this project, we have taken into account the 6-month implementation period. As of May 10, 2023, the average annual salary for a Blockchain Developer in the United States stands at $129,179. With two talented blockchain engineers on our team, the total cost for a half-year project amounts to $129,179.
+
+Moving on to the Front End Engineer role, the average salary in the United States is $120,632 per year. For a Software Operations Manager, the average annual salary is $98,022, which translates to $109,327 over a span of 6 months. Additionally, considering our objective to scale rapidly, we have allocated an extra $50,000 in the budget to hire a marketing manager who will be responsible for lead generation, customer acquisition, and creating compelling advertising content.
+
+Taking all these factors into account, our team's final budget comes to $288,506, resulting in an average monthly burn rate of $48,084.
+
 ## 6. Project Operations <a name="Operations"></a>
 
 ### a. Technologies Used <a name="Technologies"></a>
@@ -143,7 +151,29 @@ For this project we utilized a number of technologies. We used the Python progra
 
 ### b. Problems and Solutions <a name="Problems"></a>
 
+We ran into a problem with fractionalizing the erc721 tokens to erc20 tokens. The contract functions properly in remix and then everything works in web3.py but we are not able to use functions on the second erc20 token. After research this problem is within ganache since our contract works as expected in remix and it only breaks when it is used through ganache local blockchain. For this reason, we have left the functionality inside the solidity file for fractionalizing the nft because if this project went to production we would be able to incorporate this functionality. For now it is left out of the final product. 
+
 ### c. Results <a name="Results"></a>
+
+The project allows users to register cash distributions and assets on the Ethereum blockchain. It provides a user interface built with Streamlit, where users can interact with the application and perform the following tasks:
+
+1. Register Cash Distributions:
+   - Users can enter the recipient address and the amount of cash to be distributed.
+   - The registered cash distributions are stored in the application's session state.
+
+2. Register New Assets:
+   - Users can provide information such as the name, type, price, details, and recipient address of the asset.
+   - The application interacts with a smart contract deployed on the Ethereum blockchain to mint a new NFT (Non-Fungible Token) representing the asset.
+   - The newly minted NFT is associated with the specified recipient address and stored in the application's session state.
+
+3. Execution:
+   - Users can execute the registered cash distributions and asset transfers.
+   - The application performs the following actions:
+     - Transfers the specified amount of cash to the respective recipient addresses. 
+     - Transfers the registered assets (NFTs) to the specified recipient addresses through the smart contract.
+   - Transaction receipts and logs are displayed in the application interface, providing information about the executed transactions.
+
+The project combines blockchain technology, smart contracts, and a user-friendly web interface to enable the registration and execution of cash distributions and asset transfers in a decentralized manner.
 
 ## 6. Conclusion <a name="Conclusion"></a>
 
