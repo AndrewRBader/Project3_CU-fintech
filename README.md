@@ -55,7 +55,7 @@ By embracing blockchain, lawyers can enhance their efficiency, provide cost-effe
 
 ## 3. Background Information <a name="Platform"></a>
 
-<u>Estate Planning</u>
+#### Estate Planning
 
 Estate planning encompasses the crucial task of determining the preservation, management, and distribution of an individual's assets following their passing. It also considers the management of properties and financial obligations in the event of incapacitation. Contrary to popular belief, estate planning is not solely reserved for the ultra-wealthy; it is a process that anyone can and should consider.
 An individual's estate may consist of various assets, such as properties, vehicles, stocks, artwork, life insurance, pensions, and debts. There are numerous reasons why individuals engage in estate planning, including preserving family wealth, providing for a surviving spouse and children, funding education for children or grandchildren, or leaving a charitable legacy.
@@ -64,26 +64,35 @@ During the estate planning process, certain documents are essential. Common exam
 
 Estate planning is an ongoing process that should commence as soon as an individual possesses any significant assets. As life progresses and goals evolve, the estate plan should adapt accordingly. Insufficient estate planning can place undue financial burdens on loved ones, as estate taxes can be as high as 40%. Therefore, at the very least, it is crucial to establish a will, even if the taxable estate is not substantial. The cost of estate planning varies depending on the steps taken and the chosen approach. Hiring an estate planner or lawyer may involve hourly fees, although some professionals may offer a flat fee for their services. Additional costs can include will preparation, which can range from as low as $100 when seeking assistance from a professional.
 
-<Associated Challenges>
+#### Associated Challenges
 
 Our platform was developed with the aim of tackling the challenges associated with estate planning. The following checklist serves as a valuable tool to ensure that crucial aspects are not overlooked. Each of these issues requires careful consideration, as they can lead to significant problems if left unaddressed.
 
 **Family Harmony:** Estate planning is an opportunity to demonstrate your care for loved ones. However, choices regarding executors or trustees can bring up past conflicts and negative emotions for those not selected. Considering ways to mitigate and resolve these conflicts, or at least minimize exacerbating them, can help avoid family disputes.
+
 **Procrastination:** Procrastination is a common stumbling block in estate planning. Delaying the process can result in significant challenges and increased expenses if disability or death occurs without proper planning.
+
 **Attorney's Fees:** Controlling legal fees is best achieved by engaging in planning while you are alive and capable of overseeing the process. Failing to plan is likely to increase the overall fees paid, particularly if family members resort to litigation to settle disputes after your passing.
+
 **Successor Fiduciaries:** Ensure you name backup executors and trustees or establish a mechanism for beneficiaries to fill vacant roles, eliminating the need for court intervention.
+
 **Probate:** Going through court-supervised estate administration is typically an arduous process. Despite the assistance of court personnel, there are filing fees, concerns about privacy, and lengthy waiting periods before asset distribution, assuming everything goes smoothly.
+
 **Updating Beneficiary Designations:** Beneficiary designations for life insurance policies and retirement accounts are crucial. These designations are typically made when purchasing the policy or opening the account, and they need to be regularly reviewed and updated. It's not uncommon to find outdated designations that still list former spouses many years after divorce and remarriage.
+
 **Asset Protection:** Many individuals fail to take advantage of asset protection opportunities offered through basic estate planning. Creating trusts for spouses and children, with appropriate provisions, can safeguard assets from creditors and potential threats for an extended period. While we hope our children won't experience divorce, addressing this aspect of asset protection is essential.
+
 **Tax Planning:** Navigating the complexities of various tax systems is never easy. There is often a delicate balance between gift planning (transferring assets to minimize estate value) and preserving basis for capital gains purposes. Mishandling this issue can result in significant financial implications.
+
 **Joint Accounts:** Joint accounts are often used for convenience during life and sometimes mistaken as a substitute for a will upon death. It's important to ensure that these accounts align with your overall plan for passing assets to your heirs. Relying on one child to distribute funds among siblings from a joint account after your passing can lead to complications.
+
 **Contingent Beneficiaries:** Plan for contingencies in the event that immediate family members are unable to inherit your estate due to their passing. Designate alternative beneficiaries, such as charities or more distant relatives or close friends.
 
 By addressing these issues and taking proactive steps, you can navigate estate planning more effectively, minimize potential problems, and protect your assets and loved ones.
 
 ## 4. Platform Description <a name="Platform"></a>
 
-<Blockchain Applications in the Legal Industry>
+#### Blockchain Applications in the Legal Industry
 
 Blockchain technology offers the potential to revolutionize various processes within the legal industry, enhancing efficiency, productivity, and security while preserving judicial authority. By optimizing different aspects of the legal and financial sectors, blockchain can reduce friction, lower costs, and automate manual tasks involved in drafting and amending legal documents. The introduction of smart contracts accelerates transactions between parties while minimizing costs. Automated and transparent management of escrow accounts using cost-efficient algorithms decreases expenses associated with manual labor, ultimately increasing the accessibility and demand for legal services.
 
@@ -99,7 +108,7 @@ Tokenization allows for the conversion of asset rights into digital tokens, faci
 
 Through these blockchain applications, we aim to revolutionize the legal industry and overcome its challenges, delivering increased efficiency, security, and cost savings for all stakeholders involved.
 
-<Platform Breakdown>
+#### Platform Breakdown
 
 In order to facilitate a seamless transition of your assets and financial affairs in the event of your passing, it is crucial to undertake a series of steps and considerations, all of which our platform can assist you with. Firstly, compile a comprehensive inventory of all your assets, encompassing physical possessions such as real estate and precious metals, as well as bank accounts, insurance policies, and annuities. Similarly, create a record of your outstanding debts, including loans and financial obligations. Once you have these inventories, you will no longer need to make physical copies if multiple beneficiaries require access to the information; our technology will handle that task for you.
 
