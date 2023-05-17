@@ -33,6 +33,7 @@ To clone and use:
 7) create .env file in the final_app repo and input the following information:
 
     WEB3_PROVIDER_URI: *The URI of the Ethereum node provider*
+    
     SMART_CONTRACT_ADDRESS: *The address of the deployed smart contract*
 
 8) cd into the final_app repo
